@@ -1,0 +1,42 @@
+<!-- We include the sidebar as it is shared across two screens. -->
+<div class="container">
+	<div class="page-header">
+		<h1 class="text-center">My dinner: {{getNumberOfGuests()}} people</h1>
+		<a href="#/search"><button class="btn pull-right">GO BACK AND PLAN</button></a>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-6">
+
+			<!-- CheckoutList -->
+			<div class="media" ng-repeat="dish in fullMenu()">
+				<div class="media-left">
+					<img class="media-object" width="64px" height="64px" ng-src="{{dish.ImageURL}}"></a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading">{{dish.Title}}</h4>
+					<p class="text-left">{{dish.Instructions}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<!-- Inköpslista här -->
+			<table class="table" id="ingredientTable">
+				<tr ng-repeat = "ingredient in getAllIngredients()">
+					<td>{{ingredient.MetricQuantity | singleDecimal}}&nbsp;{{ingredient.MetricUnit}}</td>
+					<td>{{ingredient.Name}}</td>
+					<td>{{ingredient.MetricQuantity*getNumberOfGuests() | currency:"$"}}</td>
+				</tr>
+				<tr>
+					<td></td><td>Total: {{getTotalMenuPrice() | singleDecimal | currency:"$"}}</td>
+				</tr>
+
+			</table>
+
+
+
+		</div>
+	</div>
+</div>
+

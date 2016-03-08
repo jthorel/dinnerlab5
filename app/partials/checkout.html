@@ -1,0 +1,36 @@
+
+
+<!-- TODO in Lab 5: Display the dish information including image, Description, 
+Instructions, Ingredients and total cost. -->
+<div class="container">
+	<div class="page-header">
+		<h1 class="text-center">My dinner: {{getNumberOfGuests()}} people</h1>
+		<a href="#/search"><button class="btn pull-right">GO BACK AND PLAN</button></a>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<!-- CheckoutList -->
+			<div class="media" ng-repeat="dish in fullMenu()">
+				<div class="media-top">
+					<img class="media-object" width="64px" height="64px" ng-src="{{dish.ImageURL}}">
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading" id="checkoutDishName">{{dish.Title}}</h4>
+					<p class="text-left">{{getDishPrice(dish) | singleDecimal}} dollaz</p>
+				</div>
+			</div>		
+
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row">
+		<p class="text-center">Total: {{getTotalMenuPrice() | singleDecimal | currency:"$"}}</p>
+	</div>
+
+	<div class="row">
+		<a href="#/prep"><button type="button" class="btn btn-primary center-block">PRINT RECIPE</button></a>
+	</div>	
+</div>

@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var dinnerPlannerApp = angular.module('dinnerPlanner', ['ngRoute','ngResource']);
+var dinnerPlannerApp = angular.module('dinnerPlanner', ['ngRoute','ngResource','ngCookies']);
 
 
 // Here we configure our application module and more specifically our $routeProvider. 
@@ -48,8 +48,26 @@ dinnerPlannerApp.config(['$routeProvider',
         templateUrl: 'partials/dish.html',
         controller: 'DishCtrl'
       }).
+      when('/checkout', {
+        templateUrl: 'partials/checkout.html',
+        controller: 'DinnerCtrl'
+      }).
+      when('/prep', {
+        templateUrl: 'partials/prep.html',
+        controller: 'DinnerCtrl'
+      }).
+
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/home'
       });
   }]);
+
+
+// Filter to reduce decmils in numbers
+dinnerPlannerApp.filter('singleDecimal', function ($filter) {
+    return function (input) {
+        if (isNaN(input)) return input;
+        return Math.round(input * 10) / 10;
+    };
+});

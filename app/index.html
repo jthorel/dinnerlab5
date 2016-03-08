@@ -9,7 +9,7 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7">
     <!-- jQuery -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
@@ -18,16 +18,49 @@ which module to associate the app with. In app.js we create the "dinnerPlanner" 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     
     <!-- The application JavaScript code -->
     <script src="js/app.js"></script>
-    <script src="js/dinnerService.js"></script>
+    <script src="js/dinnerModel.js"></script>
     <script src="js/searchCtrl.js"></script>
     <script src="js/dinnerCtrl.js"></script>
     <script src="js/dishCtrl.js"></script>
 
+    <style>
+    body {
+        font-family: "Helvetica";
+    }
+    /*.navbar {
+        background-color: rgba(100,70,10,0.5);
+    }*/
+
+    .navbar-header a.navbar-brand {
+        color: black;
+    }
+
+    </style>
+
   </head>
   <body>
+    <!-- HEADER -->
+    <header class="row"> 
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        Dinnerplanner
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <div class="navbar-text"> From the best chefs in the world directly into your kitchen. </div>
+                </ul>
+            </div>
+        </nav>
+    </header> 
+    <!-- /HEADER -->
+
+
     <!-- Here in index.html you should put only the layout that is shared among all the screens (e.g. header
     ,footer, etc.). The rest of the view specific layout will go into the html partials (check partials folder) -->
 
